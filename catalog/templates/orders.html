@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказы</title>
+</head>
+<body>
+    <nav>
+        <div>
+            <strong>B</strong>
+            <span>МЕНЮ</span>
+        </div>
+        <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Категории</a></li>
+            <li><a href="#">Заказы</a></li>
+            <li><a href="#">Контакты</a></li>
+        </ul>
+        <div>
+            <strong>ПОЛЬЗОВАТЕЛЬ</strong>
+            <div>
+                <a href="#">Войти</a>
+                <a href="#">Регистрация</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        {% for category in categories %}
+            <h1>{{ category.name }}</h1>
+            <div>
+                {% for product in category.products.all %}
+                    <div>
+                        <h3>{{ product.name }}</h3>
+                        <p>{{ product.price }} руб.</p>
+                        <p>{{ product.description }}</p>
+                        <button>КУПИТЬ</button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </main>
+</body>
+</html>
